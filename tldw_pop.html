@@ -13,7 +13,7 @@ $(document).ready(function() {
       jQuery.getJSON(url, function(transcript) {
         //alert('Title = '+transcript.title);
         //alert('Title = '+transcript.link);
-        $('body').append('<div><a href="'+transcript.link+'">Click for a transcript to: '+transcript.title+'</a></div>')
+        $('body').append('<div><a target="_blank" href="'+transcript.link+'">Click for a transcript to: '+transcript.title+'</a></div>')
       });
       break;
     }

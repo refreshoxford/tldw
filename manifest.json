@@ -1,0 +1,17 @@
+{
+  "name": "tl;dw",
+  "version": "0.1",
+  "description": "A popup to show transcripts for boring videos on the current page.",
+  "background_page": "tldw_bg.html",
+  "browser_action": {
+    //"popup": "tldw_pop.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    //"http://api.flickr.com/"
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": "default-src 'none'; script-src 'self'"
+}

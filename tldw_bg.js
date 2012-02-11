@@ -1,6 +1,4 @@
-var Background = (function($) {
-  
-});
+pub = {};
 
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function(tab) {
@@ -10,11 +8,13 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
-  if(request.msg == 'add_torrent_from_url') {
-    Background.addTorrentFromUrl(request, sender, sendResponse);
+  if(request.msg == 'saveData') {
+    pub.data = request.data;
+    alert(pub.data);
     return;
-  } else if(request.msg == 'enable_download_icon') {
-    sendResponse(localStorage.delugeDownloadIcon);
+  } else if(request.msg == 'loadData') {
+    sendResponse(pub.data);
+    return;
   }
 
   // We need to send a reponse, even if it's empty.

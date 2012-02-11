@@ -10,9 +10,14 @@ $(document).ready(function(){
     {
       //info.append('<p>Video found: '+src+'</p>');
       src[j] = vid.attr('src');
-      alert(src[j]);
+      //alert(src[j]);
       j++;
     }
   }
+  
+chrome.extension.sendRequest({msg: 'saveData', data: src}, function(response) {
+  //
+});
+  
   //info.append('<p>Number of vids: '+j+'</p>');
 });

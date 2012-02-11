@@ -19,7 +19,6 @@
       "js": [
         "js/jquery-1.7.1.js",
         "tldw_getvid.js"
-        //"tldw_gettrs.js"
       ],
       "css": ["tldw_style.css"],
       "matches": ["http://*/*","https://*/*"]

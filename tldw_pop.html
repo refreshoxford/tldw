@@ -13,7 +13,14 @@ $(document).ready(function() {
       url += 'urls[]='+encodeURIComponent(data[i])+'&';
     }
     jQuery.getJSON(url, function(transcript) {
-      $('body').append('<div><a target="_blank  " href="'+transcript.link+'">Click for a transcript to: '+transcript.title+'</a></div>')
+      if( transcript.link === undefined )
+      {
+        $('body').append('<div>Sorry, no matches returned.</div>');
+      }
+      else
+      {
+        $('body').append('<div><a target="_blank  " href="'+transcript.link+'">Click for a transcript to: '+transcript.title+'</a></div>')
+      }
     });
   });
 })

@@ -2,6 +2,9 @@
  * Sit in the background as a persistent key/value store
  */
 
+// Set badge to plain text
+chrome.browserAction.setBadgeText({text:'tl;dw'});
+
 // Data storage
 pub = {};
 

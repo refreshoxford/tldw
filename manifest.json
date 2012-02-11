@@ -4,8 +4,9 @@
   "description": "A popup to show transcripts for boring videos on the current page.",
   "background_page": "tldw_bg.html",
   "browser_action": {
-    "popup": "tldw_pop.html",
-    "default_icon": "icon.png"
+    // Icon removed to show just plain text badge.
+    //"default_icon": "icon.png",
+    "popup": "tldw_pop.html"
   },
   "permissions": [
     //"http://api.flickr.com/"

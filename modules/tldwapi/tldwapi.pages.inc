@@ -35,7 +35,7 @@ function tldwapi_pages_search($format = 'json') {
       case 'json':
         drupal_json(array(
           'title' => $node->title,
-          'link' => url('node/'.$node->nid),
+          'link' => url('node/'.$node->nid, array('absolute' => TRUE)),
         ));
       break;
       case 'html':

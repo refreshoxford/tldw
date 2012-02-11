@@ -1,19 +1,27 @@
-<!--<body id="foo">-->
-<!--  <script src="http://code.jquery.com/jquery-latest.js"></script>-->
-<!--  <div id="info">-->
-<!--    <h1>Information</h1>-->
-<!--  </div>-->
-<!--  <div class="player">-->
-<!--    <h2 class="title">No src</h2>-->
-<!--    <iframe src="foo.bar" width="250" height="250" frameborder="1"></iframe>-->
-<!--  </div>-->
-<!--</body>-->
 <html>
   <head>
-  <script src="js/jquery-1.7.1.js"></script>
-  <script src="tldw_pop.js"></script>
+    <link type="text/css" rel="stylesheet" href="tldw_style.css">
+    <script src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  chrome.extension.sendRequest({msg: 'loadData'}, function(response) {
+    var i, data, url;
+    data = response.data;
+    for( i=0; i<data.length; i++ )
+    {
+      url = 'http://tldw.services.refreshoxford.co.uk:8080/tldwapi/search?url='+encodeURIComponent(data[i]);
+      jQuery.getJSON(url, function(transcript) {
+        //alert('Title = '+transcript.title);
+        //alert('Title = '+transcript.link);
+        $('body').append('<div><a href="'+transcript.link+'">Click for a transcript to: '+transcript.title+'</a></div>')
+      });
+      break;
+    }
+  });
+})
+    </script>
   </head>
   <body>
-    <h1>tldw</h1>
+    <h1>tl;dw</h1>
   </body>
 </html>

@@ -1,9 +1,8 @@
 $(document).ready(function(){
   var i, j, vids, vid, info;
-  src = new Array();
+  src = new Array(window.location.href);
   vids = $('iframe, embed, object');
-  //info = $('#info');
-  for( i=0, j=0; i<vids.length; i++ )
+  for( i=0, j=1; i<vids.length; i++ )
   {
     vid = $(vids[i]);
     if( typeof vid.attr('src') !== "undefined" )

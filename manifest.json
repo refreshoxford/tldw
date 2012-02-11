@@ -20,7 +20,6 @@
         "js/jquery-1.7.1.js",
         "tldw_getvid.js"
       ],
-      "css": ["tldw_style.css"],
       "matches": ["http://*/*","https://*/*"]
     }
   ]

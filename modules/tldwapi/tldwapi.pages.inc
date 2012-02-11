@@ -6,9 +6,16 @@
 function tldwapi_pages_search($format = 'json') {
   $url = $_GET['url'];
 
-  $sql = "SELECT nid FROM content_field_videolink WHERE field_videolink_embed LIKE '%%s%'";
-  $result = db_query($sql, $url);
-  $node = node_load(db_result($result));
+  // Try to parse the URL into a provider we know about
+  $field_spec = content_fields('field_videolink', 'transcript');
+  $parsed = emfield_parse_embed($field_spec, $url, 'emvideo');
+
+  // If we've identified a provider, try to find a video with that provider
+  if (isset($parsed['provider']) && $parsed['provider']) {
+    $sql = "SELECT nid FROM content_field_videolink WHERE field_videolink_value = '%s' AND field_videolink_provider = '%s'";
+    $result = db_query($sql, $parsed['value'], $parsed['provider']);
+    $node = node_load(db_result($result));
+  }
 
   // No results? return an empty array or equivalent
   if (!$node) {

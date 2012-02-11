@@ -2,7 +2,7 @@
   "name": "tl;dw",
   "version": "0.1",
   "description": "A popup to show transcripts for boring videos on the current page.",
-  "background_page": "tldw_bg.html",
+  //"background_page": "tldw_bg.html",
   "browser_action": {
     //"popup": "tldw_pop.html",
     "default_icon": "icon.png"
@@ -13,5 +13,16 @@
     "http://*/*",
     "https://*/*"
   ],
-  "content_security_policy": "default-src 'none'; script-src 'self'"
+  //"content_security_policy": "default-src 'none'; script-src 'self'",
+  "content_scripts": [
+    {
+      "js": [
+        "js/jquery-1.7.1.js",
+        "tldw_getvid.js"
+        //"tldw_gettrs.js"
+      ],
+      "css": ["tldw_style.css"],
+      "matches": ["http://*/*","https://*/*"]
+    }
+  ]
 }

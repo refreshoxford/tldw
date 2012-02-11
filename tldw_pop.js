@@ -1,5 +1,5 @@
 $(document).ready(function() {
   chrome.extension.sendRequest({msg: 'loadData'}, function(response) {
-    $('body').append('<div>'+response.data+'</div>')
+    $('body').append('<div>foo: '+response.data+'</div>')
   });
 })

@@ -1,11 +1,5 @@
 pub = {};
 
-// Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
-  chrome.tabs.executeScript(
-      null, {file:"tldw_getvid.js"});
-});
-
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
   if(request.msg == 'saveData') {

@@ -10,10 +10,9 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
   if(request.msg == 'saveData') {
     pub.data = request.data;
-    alert(pub.data);
     return;
   } else if(request.msg == 'loadData') {
-    sendResponse(pub.data);
+    sendResponse(pub);
     return;
   }
 

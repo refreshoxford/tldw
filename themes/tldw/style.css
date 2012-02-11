@@ -880,8 +880,3 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
 }
 
 
-/* Transcript Page */
-
-.emvideo-thumbnail-replace-preview .emvideo-thumbnail-replacement span {
-	display:none;
-}
